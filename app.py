@@ -21,12 +21,12 @@ def chat():
     
     try:
         #Use the fast gemini model
-        model = genai.GenerativeModel('gemini-2.5-flash')      # <--- Remove .get
+        model = genai.GenerativeModel('gemini-2.5-flash')      
         response = model.generate_content(user_message)
         return jsonify({"reply": response.text})
     except Exception as e:
         return jsonify({"reply": f"Error: {str(e)}"})
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
 
